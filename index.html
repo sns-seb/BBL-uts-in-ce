@@ -4,10 +4,10 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>reveal.js - The HTML Presentation Framework</title>
+		<title>Guava 12+, organizing a dev's mind and the codebase for FluentIterable and Optional</title>
 
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
+		<meta name="description" content="Guava 12+, organizing a dev's mind and the codebase for FluentIterable and Optional">
+		<meta name="author" content="Sébastien Lesaint @ SonarSource">
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -41,336 +41,402 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<h1>Reveal.js</h1>
-					<h3>The HTML Presentation Framework</h3>
-					<p>
-						<small>Created by <a href="http://hakim.se">Hakim El Hattab</a> / <a href="http://twitter.com/hakimel">@hakimel</a></small>
-					</p>
+					<h1>Guava 12+</h1>
+					<h3>organizing a dev's mind and the codebase for FluentIterable and Optional</h3>
 				</section>
 
-				<section>
-					<h2>Hello There</h2>
-					<p>
-						reveal.js enables you to create beautiful interactive slide decks using HTML. This presentation will show you examples of what it can do.
-					</p>
-				</section>
-
-				<!-- Example of nested vertical slides -->
 				<section>
 					<section>
-						<h2>Vertical Slides</h2>
-						<p>Slides can be nested inside of each other.</p>
-						<p>Use the <em>Space</em> key to navigate through all slides.</p>
-						<br>
-						<a href="#" class="navigate-down">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
+						<h2>FluentIterable</h2>
+
+						<p>Its streams and functional programming for the poor</p>
+						<p>say bye bye to loops, nested loops, mutable variable, ...</p>
+						<small>(added in Guava 12)</small>
 					</section>
+
 					<section>
-						<h2>Basement Level 1</h2>
-						<p>Nested slides are useful for adding additional detail underneath a high level horizontal slide.</p>
+						<h2>Old style</h2>
+
+						<img src="assets/img/imperative_vs_functional_imperative.png">
+
+						<p class="fragment">Extract the 40 first lines starting with ERROR from the specified list</p>
 					</section>
+
 					<section>
-						<h2>Basement Level 2</h2>
-						<p>That's it, time to go back up.</p>
-						<br>
-						<a href="#/2">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="-webkit-transform: rotate(180deg);">
-						</a>
+						<h2>Functional style</h2>
+						<img src="assets/img/imperative_vs_functional_functional.png">
+						<ul>
+							<li>code is much shorter</li>
+							<li>no more mutable variable</li>
+						</ul>
 					</section>
-				</section>
 
-				<section>
-					<h2>Slides</h2>
-					<p>
-						Not a coder? Not a problem. There's a fully-featured visual editor for authoring these, try it out at <a href="http://slides.com" target="_blank">http://slides.com</a>.
-					</p>
-				</section>
-
-				<section>
-					<h2>Point of View</h2>
-					<p>
-						Press <strong>ESC</strong> to enter the slide overview.
-					</p>
-					<p>
-						Hold down alt and click on any element to zoom in on it using <a href="http://lab.hakim.se/zoom-js">zoom.js</a>. Alt + click anywhere to zoom back out.
-					</p>
-				</section>
-
-				<section>
-					<h2>Touch Optimized</h2>
-					<p>
-						Presentations look great on touch devices, like mobile phones and tablets. Simply swipe through your slides.
-					</p>
-				</section>
-
-				<section data-markdown>
-					<script type="text/template">
-						## Markdown support
-
-						Write content using inline or external Markdown.
-						Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
-
-						```
-						<section data-markdown>
-						  ## Markdown support
-
-						  Write content using inline or external Markdown.
-						  Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
-						</section>
-						```
-					</script>
-				</section>
-
-				<section>
-					<section id="fragments">
-						<h2>Fragments</h2>
-						<p>Hit the next arrow...</p>
-						<p class="fragment">... to step through ...</p>
-						<p><span class="fragment">... a</span> <span class="fragment">fragmented</span> <span class="fragment">slide.</span></p>
-
-						<aside class="notes">
-							This slide has fragments which are also stepped through in the notes window.
-						</aside>
-					</section>
 					<section>
-						<h2>Fragment Styles</h2>
-						<p>There's different types of fragments, like:</p>
-						<p class="fragment grow">grow</p>
-						<p class="fragment shrink">shrink</p>
-						<p class="fragment roll-in">roll-in</p>
-						<p class="fragment fade-out">fade-out</p>
-						<p class="fragment current-visible">current-visible</p>
-						<p class="fragment highlight-red">highlight-red</p>
-						<p class="fragment highlight-blue">highlight-blue</p>
+						<h2>Imperative VS functional</h2>
+
+						<img src="assets/img/imperative_vs_functional_tweet_mario_fusco.png"><br/>
+
+						<small>note: we are close to Java 8 stream syntax</small>
 					</section>
-				</section>
 
-				<section id="transitions">
-					<h2>Transition Styles</h2>
-					<p>
-						You can select from different transitions, like: <br>
-						<a href="?transition=none#/transitions">None</a> -
-						<a href="?transition=fade#/transitions">Fade</a> -
-						<a href="?transition=slide#/transitions">Slide</a> -
-						<a href="?transition=convex#/transitions">Convex</a> -
-						<a href="?transition=concave#/transitions">Concave</a> -
-						<a href="?transition=zoom#/transitions">Zoom</a>
-					</p>
-				</section>
+					<section>
+						<h2>a real change</h2>
 
-				<section id="themes">
-					<h2>Themes</h2>
-					<p>
-						reveal.js comes with a few themes built in: <br>
-						<!-- Hacks to swap themes after the page has loaded. Not flexible and only intended for the reveal.js demo deck. -->
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/black.css'); return false;">Black (default)</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/white.css'); return false;">White</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/league.css'); return false;">League</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/sky.css'); return false;">Sky</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/beige.css'); return false;">Beige</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/simple.css'); return false;">Simple</a> <br>
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/serif.css'); return false;">Serif</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/night.css'); return false;">Night</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/moon.css'); return false;">Moon</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/solarized.css'); return false;">Solarized</a>
-					</p>
-				</section>
-
-				<section>
-					<section data-background="#dddddd">
-						<h2>Slide Backgrounds</h2>
-						<p>
-							Set <code>data-background="#dddddd"</code> on a slide to change the background color. All CSS color formats are supported.
+						<p>even though it's nothing but a fluent style wrapper<br/>
+						<img src="assets/img/imperative_vs_functional_old_way.png"><br/>
 						</p>
-						<a href="#" class="navigate-down">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
 					</section>
-					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png">
-						<h2>Image Backgrounds</h2>
-						<pre><code>&lt;section data-background="image.png"&gt;</code></pre>
+
+					<section>
+						<h2>Keep it readable</h2>
+
+						<p>IDEA lambda style display<br/>
+						<img src="assets/img/idea_tidy_display.png"><br/>
+
+						the real code<br/>
+						<img src="assets/img/without_idea_tidy_display.png">
+						</p>
 					</section>
-					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png" data-background-repeat="repeat" data-background-size="100px">
-						<h2>Tiled Backgrounds</h2>
-						<pre><code style="word-wrap: break-word;">&lt;section data-background="image.png" data-background-repeat="repeat" data-background-size="100px"&gt;</code></pre>
+
+					<section>
+						<h2>Keep it readable</h2>
+
+						<p>use a method<br/>
+							<img src="assets/img/use_is_error_method.png">
+						</p>
 					</section>
-					<section data-background-video="https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4,https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.webm" data-background-color="#000000">
-						<div style="background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px;">
-							<h2>Video Backgrounds</h2>
-							<pre><code style="word-wrap: break-word;">&lt;section data-background-video="video.mp4,video.webm"&gt;</code></pre>
-						</div>
+
+					<section>
+						<h2>Keep it readable</h2>
+
+							use indent, otherwise...<br/>
+							<img src="assets/img/no_indent.png">
+					</section>
+
+					<section>
+						<h2>Keep it readable</h2>
+
+						use static import of FluentIterable.from<br/>
+						<img src="assets/img/static_import_from.png">
 					</section>
 				</section>
 
-				<section data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
-					<h2>Background Transitions</h2>
-					<p>
-						Different background transitions are available via the backgroundTransition option. This one's called "zoom".
-					</p>
-					<pre><code>Reveal.configure({ backgroundTransition: 'zoom' })</code></pre>
-				</section>
-
-				<section data-transition="slide" data-background="#b5533c" data-background-transition="zoom">
-					<h2>Background Transitions</h2>
-					<p>
-						You can override background transitions per-slide.
-					</p>
-					<pre><code style="word-wrap: break-word;">&lt;section data-background-transition="zoom"&gt;</code></pre>
+				<section>
+					<h2>let's go practical</h2>
 				</section>
 
 				<section>
-					<h2>Pretty Code</h2>
-					<pre><code data-trim contenteditable>
-function linkify( selector ) {
-  if( supports3DTransforms ) {
+					<section>
+						<h2>Legacy code 1</h2>
 
-    var nodes = document.querySelectorAll( selector );
+						<img src="assets/img/findAllOpenSourceCompatiblePlugins_old_way.png">
 
-    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
-      var node = nodes[i];
+						<p class="fragment">Find all opensource plugins which are compatible with the current version of SQ</p>
+					</section>
 
-      if( !node.className ) {
-        node.className += ' roll';
-      }
-    }
-  }
-}
-					</code></pre>
-					<p>Code syntax highlighting courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
+					<section>
+						<h2>Functional style</h2>
+
+						<img src="assets/img/findAllOpenSourceCompatiblePlugins_new_way_short.png">
+					</section>
+
+					<section>
+						<h2>the whole stuff</h2>
+
+						<img src="assets/img/findAllOpenSourceCompatiblePlugins_new_way.png">
+					</section>
+
+					<section>
+						<h2>handling Null</h2>
+
+						<img src="assets/img/findAllOpenSourceCompatiblePlugins_new_way_notNull.png">
+					</section>
+
+					<section>
+						<h2>Nonnull Predicates</h2>
+
+						<ul>
+							<li>
+								complies with Javadoc
+								<img src="assets/img/javadoc_predicate_apply.png">
+							</li>
+						<li>override @Nullable with @Nonnull
+							<ul>
+								<li>complies with SQ</li>
+								<li>but not with IDEA (who cares?)</li>
+							</ul>
+						</li>
+						<li>Fail early in predicate
+							<ul>
+								<li>enforces explicit Null handling in stream</li>
+								<li>or avoid numerous useless null checks</li>
+							</ul>
+						</li>
+						</ul>
+
+					</section>
+
+					<section>
+						<h2>save useless instance creation</h2>
+
+						<img src="assets/img/findAllOpenSourceCompatiblePlugins_new_way_must_remove_new.png">
+					</section>
+
+					<section>
+						<h2>singleton enum</h2>
+
+						<p>
+							when apply code is static
+							<img src="assets/img/singleton_enum.png">
+						</p>
+					</section>
+
+					<section>
+						<h2>save useless instance creation</h2>
+
+						<img src="assets/img/findAllOpenSourceCompatiblePlugins_new_way_must_remove_new.png">
+					</section>
+
+					<section>
+						<h2>predicate as property</h2>
+
+						<p>
+							when apply code depends only on a instance properties
+							<img src="assets/img/predicate_property.png">
+						</p>
+					</section>
+
+					<section>
+						<h2>final code</h2>
+
+						<img src="assets/img/findAllOpenSourceCompatiblePlugins_new_way_final_code.png">
+					</section>
 				</section>
 
 				<section>
-					<h2>Marvelous List</h2>
-					<ul>
-						<li>No order here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-					</ul>
+					<section>
+						<h2>Legacy code 2</h2>
+
+						<p><img src="assets/img/get_A_OpenSourceDevelopers_old.png"></p>
+						<p class="fragment">create an ordered collection of the developers of the opensource plugins in the specified collection which name starts with an a (case insensitive)</p>
+					</section>
+
+					<section>
+						<h2>Functional style</h2>
+
+						<img src="assets/img/get_A_OpenSourceDevelopers_new.png">
+					</section>
+
+					<section>
+						<h2>transform And Concat</h2>
+
+						<small>Also known as flatMap (map and flatten)</small>
+
+<pre>
+PluginA   ----   PluginB   ----   PluginC   ----   PluginD
+   |                |                |                |
+   |                |                |                |
+ DevA()    ----   DevB()    ----   DevC()    ----   DevC()
+   \                \                /                /
+    \                \              /                /
+     \                \            /                /
+       --------------------\ /---------------------
+                            |
+                          DevAll[]
+</pre>
+
+
+					</section>
+
+
+					<section>
+						<h2>Know your FluentIterable</h2>
+
+						<table>
+							<thead>
+								<tr>
+									<th>process input</th>
+									<th><u>immutable</u> output</th>
+									<th>Optional output</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>
+										filter
+										<br/><br/>
+										transform,
+										transformAndConcat
+										<br/><br/>
+										cycle, append
+									</td>
+									<td>
+										toList, toSet, toArray
+										<br/><br/>
+										toSortedList, toSortedSet
+										<br/><br/>
+										toMap, index, uniqueIndex
+									</td>
+									<td>
+										first, last
+										<br/><br/>
+										firstMatch, anyMatch
+									</td>
+								<tr>
+							</tbody>
+						</table>
+
+					</section>
+
 				</section>
 
 				<section>
-					<h2>Fantastic Ordered List</h2>
-					<ol>
-						<li>One is smaller than...</li>
-						<li>Two is smaller than...</li>
-						<li>Three!</li>
-					</ol>
+					<section>
+						<h2>Organising functions/predicates</h2>
+
+						<ul>
+							<li>
+								use factory-style classes
+								<ul>
+									<li>
+										static methods are static import friendly<br/>
+										=> short and good readibility
+									</li>
+									<li>never expose inner singleton enums or classes</li>
+								</ul>
+							</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>PluginPredicates</h2>
+
+						<img src="assets/img/PluginPredicates.png">
+					</section>
+
+					<section>
+						<h2>Guidelines</h2>
+
+						<ul>
+							<li>
+								group per domain class
+							</li>
+							<li>
+								Name is plural
+								<ul>
+									<li>eg. "PluginPredicates", "PluginFunctions"</li>
+								</ul>
+							</li>
+							<li>
+								group factory classes per domain into a package
+								<ul>
+									<li>eg. "updatecenter.function", "updatecenter.predicate"</li>
+								</ul>
+							</li>
+						</ul>
+
+					</section>
+
 				</section>
 
 				<section>
-					<h2>Tabular Tables</h2>
-					<table>
-						<thead>
-							<tr>
-								<th>Item</th>
-								<th>Value</th>
-								<th>Quantity</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>Apples</td>
-								<td>$1</td>
-								<td>7</td>
-							<tr>
-							<tr>
-								<td>Lemonade</td>
-								<td>$2</td>
-								<td>18</td>
-							<tr>
-							<tr>
-								<td>Bread</td>
-								<td>$3</td>
-								<td>2</td>
-							<tr>
-						</tbody>
-					</table>
+					<section>
+						<h2>Optional</h2>
+
+						<h3 class="fragment">Get rid of null...</h3>
+						<h3 class="fragment">... as a returned value</h3>
+					</section>
+
+					<section>
+						<h2>Optional as a return type</h2>
+
+						<ul>
+							<li>
+								improves meaning of method signature<br/>
+								<img src="assets/img/findNewestUpdate_nullable.png"><br/>
+								<img src="assets/img/findNewestUpdate_Optional.png"><br/>
+							</li>
+							<li>less error prone</li>
+							<li>no more @CheckForNull or @Nullable or javadoc or whatever</li>
+						</ul>
+
+					</section>
+
+					<section>
+						<h2>Optional as a parameter</h2>
+
+						<h3 class="fragment">don't do it</h3>
+
+						<blockquote class="fragment">Rubustness principle: Be conservative in what you send, be liberal in what you accept</blockquote>
+
+					</section>
+
+
+					<section>
+						<h2>Optional as a parameter</h2>
+
+						<ul class="fragment">
+							<li>keep using @Nullables
+								<ul>
+									<li>avoids polluting method signature</li>
+									<li>and add extra constraint on method caller</li>
+								</ul>
+							</li>
+							<li>use Optional.fromNullable internally</li>
+						</ul>
+
+					</section>
+
+					<section>
+						<h2>Optional as a property</h2>
+
+						<h3 class="fragment">don't do it either</h3>
+
+						<ul class="fragment">
+							<li>The extra storage cost is just not worth it</li>
+							<li>keep using (or do use) @CheckForNull/@Nullable</li>
+							<li>Use Optional.fromNullable in getters</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>No more null checks</h2>
+
+						<p>forget testing null, use Optional.isPresent</p>
+						<img src="assets/img/use_is_present_simple.png">
+						<p>never use Optional.get without Option.isPresent first</p>
+					</section>
+
+					<section>
+						<h2>The golden or method</h2>
+
+						<p>
+							elegant default value<br/>
+							<img src="assets/img/use_or_for_default_value.png">
+						</p>
+						<p>
+							use Optional.orNull if null is your default value<br/>
+							<img src="assets/img/use_or_null.png">
+						</p>
+					</section>
+
+					<section>
+						<h2>Or even better</h2>
+
+						<p>
+							fluent method calls<br/>
+							<img src="assets/img/use_combined_ors.png">
+						</p>
+						<p>
+							or throwing exceptions<br/>
+							<img src="assets/img/use_or_to_throw_exception.png">
+						</p>
+					</section>
+
 				</section>
 
-				<section>
-					<h2>Clever Quotes</h2>
-					<p>
-						These guys come in two forms, inline: <q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						&ldquo;The nice thing about standards is that there are so many to choose from&rdquo;</q> and block:
-					</p>
-					<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						&ldquo;For years there has been a theory that millions of monkeys typing at random on millions of typewriters would
-						reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.&rdquo;
-					</blockquote>
-				</section>
 
-				<section>
-					<h2>Intergalactic Interconnections</h2>
-					<p>
-						You can link between slides internally,
-						<a href="#/2/3">like this</a>.
-					</p>
-				</section>
 
-				<section>
-					<h2>Speaker View</h2>
-					<p>There's a <a href="https://github.com/hakimel/reveal.js#speaker-notes">speaker view</a>. It includes a timer, preview of the upcoming slide as well as your speaker notes.</p>
-					<p>Press the <em>S</em> key to try it out.</p>
-
-					<aside class="notes">
-						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
-					</aside>
-				</section>
-
-				<section>
-					<h2>Export to PDF</h2>
-					<p>Presentations can be <a href="https://github.com/hakimel/reveal.js#pdf-export">exported to PDF</a>, here's an example:</p>
-					<iframe src="//www.slideshare.net/slideshow/embed_code/42840540" width="445" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:3px solid #666; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
-				</section>
-
-				<section>
-					<h2>Global State</h2>
-					<p>
-						Set <code>data-state="something"</code> on a slide and <code>"something"</code>
-						will be added as a class to the document element when the slide is open. This lets you
-						apply broader style changes, like switching the page background.
-					</p>
-				</section>
-
-				<section data-state="customevent">
-					<h2>State Events</h2>
-					<p>
-						Additionally custom events can be triggered on a per slide basis by binding to the <code>data-state</code> name.
-					</p>
-					<pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
-Reveal.addEventListener( 'customevent', function() {
-	console.log( '"customevent" has fired' );
-} );
-					</code></pre>
-				</section>
-
-				<section>
-					<h2>Take a Moment</h2>
-					<p>
-						Press B or . on your keyboard to pause the presentation. This is helpful when you're on stage and want to take distracting slides off the screen.
-					</p>
-				</section>
-
-				<section>
-					<h2>Much more</h2>
-					<ul>
-						<li>Right-to-left support</li>
-						<li><a href="https://github.com/hakimel/reveal.js#api">Extensive JavaScript API</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js#auto-sliding">Auto-progression</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js#parallax-background">Parallax backgrounds</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js#keyboard-bindings">Custom keyboard bindings</a></li>
-					</ul>
-				</section>
-
-				<section style="text-align: left;">
-					<h1>THE END</h1>
-					<p>
-						- <a href="http://slides.com">Try the online editor</a> <br>
-						- <a href="https://github.com/hakimel/reveal.js">Source code &amp; documentation</a>
-					</p>
-				</section>
 
 			</div>
 
