@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 
@@ -51,7 +52,7 @@
 
 						<small>(added in Guava 12)</small>
 						<p>Its streams and functional programming for the poor</p>
-						<p>say bye bye to loops, nested loops, mutable variable, ...</p>
+						<p>say bye bye to loops, nested loops, mutable variables, ...</p>
 
 					</section>
 
@@ -110,8 +111,8 @@
 					<section>
 						<h2>Keep it readable</h2>
 
-							use indent, otherwise...<br/>
-							<img src="assets/img/no_indent.png">
+						use indent, otherwise...<br/>
+						<img src="assets/img/no_indent.png">
 					</section>
 
 					<section>
@@ -314,9 +315,31 @@ PluginA   ----   PluginB   ----   PluginC   ----   PluginD
 						<h2>practices</h2>
 
 						<ul>
-							<li>don't return FluentIterable directly in non private methods</li>
+							<li>don't return FluentIterable directly in non private functions</li>
 							<li>be careful when storing a FluentIterable in variable</li>
 							<li>but you can reuse a FluentIterable to create variations</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Immutability</h2>
+
+						<p>Ouput of toList, toSet, toMap are immutable objects</p>
+						<ul>
+							<li>it's good for your public functions</li>
+							<li>
+								for mutable collections, use Guava's methods
+								<ul>
+									<li>
+										do<br>
+										<img src="assets/img/mutable_list_do.png" width="150%" height="150%">
+									</li>
+									<li>
+										do not<br/>
+										<img src="assets/img/mutable_list_dont.png" width="150%" height="150%">
+									</li>
+								</ul>
+							</li>
 						</ul>
 					</section>
 
@@ -340,7 +363,7 @@ PluginA   ----   PluginB   ----   PluginC   ----   PluginD
 										static methods are static import friendly<br/>
 										=> short and good readibility
 									</li>
-									<li>never expose inner singleton enums or classes</li>
+									<li>don't expose inner singleton enums or classes</li>
 								</ul>
 							</li>
 						</ul>
