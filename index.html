@@ -49,9 +49,10 @@
 					<section>
 						<h2>FluentIterable</h2>
 
+						<small>(added in Guava 12)</small>
 						<p>Its streams and functional programming for the poor</p>
 						<p>say bye bye to loops, nested loops, mutable variable, ...</p>
-						<small>(added in Guava 12)</small>
+
 					</section>
 
 					<section>
@@ -292,6 +293,43 @@ PluginA   ----   PluginB   ----   PluginC   ----   PluginD
 
 				<section>
 					<section>
+						<h2>Under the hood</h2>
+
+						<p>What you should known to avoid bad usage of FluentIterable</p>
+					</section>
+
+					<section>
+						<h2>Lazy evaluation</h2>
+
+						<p>all filter/map/flatmap operations are lazy evaluated</p>
+
+						<ul>
+							<li>empty iterable at any point means next operations are not evaluated</li>
+							<li>iterate twice means do all operations twice</li>
+							<li>same goes with exist, find, any, size, get, ...</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>practices</h2>
+
+						<ul>
+							<li>don't return FluentIterable directly in non private methods</li>
+							<li>be careful when storing a FluentIterable in variable</li>
+							<li>but you can reuse a FluentIterable to create variations</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>lots of objects</h2>
+
+						<p>Guava create lots of (short-lived) objects</p>
+						<p>So, try and don't add to the stack with your objects</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
 						<h2>Organising functions/predicates</h2>
 
 						<ul>
@@ -334,7 +372,6 @@ PluginA   ----   PluginB   ----   PluginC   ----   PluginD
 								</ul>
 							</li>
 						</ul>
-
 					</section>
 
 				</section>
@@ -343,8 +380,14 @@ PluginA   ----   PluginB   ----   PluginC   ----   PluginD
 					<section>
 						<h2>Optional</h2>
 
+						<p>&nbsp;</p>
+
 						<h3 class="fragment">Get rid of null...</h3>
 						<h3 class="fragment">... as a returned value</h3>
+
+						<p>&nbsp;</p>
+
+						<small class="fragment">(added in Guava 10 so we should already use it!)</small>
 					</section>
 
 					<section>
@@ -353,8 +396,8 @@ PluginA   ----   PluginB   ----   PluginC   ----   PluginD
 						<ul>
 							<li>
 								improves meaning of method signature<br/>
-								<img src="assets/img/findNewestUpdate_nullable.png"><br/>
-								<img src="assets/img/findNewestUpdate_Optional.png"><br/>
+								<img src="assets/img/findNewestUpdate_nullable.png" width="150%" height="150%"><br/>
+								<img src="assets/img/findNewestUpdate_Optional.png" width="150%" height="150%"><br/>
 							</li>
 							<li>less error prone</li>
 							<li>no more @CheckForNull or @Nullable or javadoc or whatever</li>
@@ -365,8 +408,10 @@ PluginA   ----   PluginB   ----   PluginC   ----   PluginD
 					<section>
 						<h2>Optional as a parameter</h2>
 
-						<h3 class="fragment">don't do it</h3>
+						<p>&nbsp;</p>
+						<h3 class="fragment">don't do it in public methods</h3>
 
+						<p>&nbsp;</p>
 						<blockquote class="fragment">Rubustness principle: Be conservative in what you send, be liberal in what you accept</blockquote>
 
 					</section>
@@ -390,6 +435,8 @@ PluginA   ----   PluginB   ----   PluginC   ----   PluginD
 					<section>
 						<h2>Optional as a property</h2>
 
+						<p>&nbsp;</p>
+
 						<h3 class="fragment">don't do it either</h3>
 
 						<ul class="fragment">
@@ -403,7 +450,7 @@ PluginA   ----   PluginB   ----   PluginC   ----   PluginD
 						<h2>No more null checks</h2>
 
 						<p>forget testing null, use Optional.isPresent</p>
-						<img src="assets/img/use_is_present_simple.png">
+						<img src="assets/img/use_is_present_simple.png" width="150%" height="150%">
 						<p>never use Optional.get without Option.isPresent first</p>
 					</section>
 
@@ -412,11 +459,11 @@ PluginA   ----   PluginB   ----   PluginC   ----   PluginD
 
 						<p>
 							elegant default value<br/>
-							<img src="assets/img/use_or_for_default_value.png">
+							<img src="assets/img/use_or_for_default_value.png" width="150%" height="150%">
 						</p>
 						<p>
 							use Optional.orNull if null is your default value<br/>
-							<img src="assets/img/use_or_null.png">
+							<img src="assets/img/use_or_null.png" width="150%" height="150%">
 						</p>
 					</section>
 
@@ -425,11 +472,11 @@ PluginA   ----   PluginB   ----   PluginC   ----   PluginD
 
 						<p>
 							fluent method calls<br/>
-							<img src="assets/img/use_combined_ors.png">
+							<img src="assets/img/use_combined_ors.png" width="150%" height="150%">
 						</p>
 						<p>
 							or throwing exceptions<br/>
-							<img src="assets/img/use_or_to_throw_exception.png">
+							<img src="assets/img/use_or_to_throw_exception.png" width="150%" height="150%">
 						</p>
 					</section>
 
