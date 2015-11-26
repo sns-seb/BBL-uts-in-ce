@@ -44,468 +44,224 @@
 				<section>
 					<h1>Unit tests</h1>
 					<h3>experience feedback from the Compute Engine team</h3>
+					<h3>part 1</h3>
 				</section>
 
 				<section>
+					<h2>Compute Engine</h2>
+
+					<ul>
+						<li>2,5 people</li>
+						<li>352 classes</li>
+						<li>2k+ unit tests</li>
+						<li>95% line coverage</li>
+						<li>over several (sic!) months</li>
+					</ul>
+
+					<p>
+						and <strong>systematic thorough code review</strong>
+					</p>
+
+				</section>
+
+				<section>
+
 					<section>
-						<h2>FluentIterable</h2>
+						<h2>Make code easy to read</h2>
 
-						<small>(added in Guava 12)</small>
-						<p>Its streams and functional programming for the poor</p>
-						<p>say bye bye to loops, nested loops, mutable variables, ...</p>
-
-					</section>
-
-					<section>
-						<h2>Old style</h2>
-
-						<img src="assets/img/imperative_vs_functional_imperative.png">
-
-						<p class="fragment">Extract the 40 first lines starting with ERROR from the specified list</p>
-					</section>
-
-					<section>
-						<h2>Functional style</h2>
-						<img src="assets/img/imperative_vs_functional_functional.png">
+						<p>because it makes it easier to</p>
 						<ul>
-							<li>code is much shorter</li>
-							<li>no more mutable variable</li>
-						</ul>
-					</section>
-
-					<section>
-						<h2>Imperative VS functional</h2>
-
-						<img src="assets/img/imperative_vs_functional_tweet_mario_fusco.png"><br/>
-
-						<small>note: we are close to Java 8 stream syntax</small>
-					</section>
-
-					<section>
-						<h2>a real change</h2>
-
-						<p>even though it's nothing but a fluent style wrapper<br/>
-						<img src="assets/img/imperative_vs_functional_old_way.png"><br/>
-						</p>
-					</section>
-
-					<section>
-						<h2>Keep it readable</h2>
-
-						<p>IDEA lambda style display<br/>
-						<img src="assets/img/idea_tidy_display.png"><br/>
-
-						the real code<br/>
-						<img src="assets/img/without_idea_tidy_display.png">
-						</p>
-					</section>
-
-					<section>
-						<h2>Keep it readable</h2>
-
-						<p>use a method<br/>
-							<img src="assets/img/use_is_error_method.png">
-						</p>
-					</section>
-
-					<section>
-						<h2>Keep it readable</h2>
-
-						use indent, otherwise...<br/>
-						<img src="assets/img/no_indent.png">
-					</section>
-
-					<section>
-						<h2>Keep it readable</h2>
-
-						use static import of FluentIterable.from<br/>
-						<img src="assets/img/static_import_from.png">
-					</section>
-				</section>
-
-				<section>
-					<h2>let's go practical</h2>
-				</section>
-
-				<section>
-					<section>
-						<h2>Legacy code 1</h2>
-
-						<img src="assets/img/findAllOpenSourceCompatiblePlugins_old_way.png">
-
-						<p class="fragment">Find all opensource plugins which are compatible with the current version of SQ</p>
-					</section>
-
-					<section>
-						<h2>Functional style</h2>
-
-						<img src="assets/img/findAllOpenSourceCompatiblePlugins_new_way_short.png">
-					</section>
-
-					<section>
-						<h2>the whole stuff</h2>
-
-						<img src="assets/img/findAllOpenSourceCompatiblePlugins_new_way.png">
-					</section>
-
-					<section>
-						<h2>handling Null</h2>
-
-						<img src="assets/img/findAllOpenSourceCompatiblePlugins_new_way_notNull.png">
-					</section>
-
-					<section>
-						<h2>Nonnull Predicates</h2>
-
-						<ul>
-							<li>
-								complies with Javadoc
-								<img src="assets/img/javadoc_predicate_apply.png">
-							</li>
-						<li>override @Nullable with @Nonnull
-							<ul>
-								<li>complies with SQ</li>
-								<li>but not with IDEA (who cares?)</li>
-							</ul>
-						</li>
-						<li>Fail early in predicate
-							<ul>
-								<li>enforces explicit Null handling in stream</li>
-								<li>or avoid numerous useless null checks</li>
-							</ul>
-						</li>
+							<li>understand</li>
+							<li>provide critical feedback</li>
+							<li>maintain</li>
 						</ul>
 
+						<p class="fragment">and therefor code review goes faster and is better</p>
 					</section>
 
 					<section>
-						<h2>save useless instance creation</h2>
-
-						<img src="assets/img/findAllOpenSourceCompatiblePlugins_new_way_must_remove_new.png">
-					</section>
-
-					<section>
-						<h2>singleton enum</h2>
-
-						<p>
-							when apply code is static
-							<img src="assets/img/singleton_enum.png">
-						</p>
-					</section>
-
-					<section>
-						<h2>save useless instance creation</h2>
-
-						<img src="assets/img/findAllOpenSourceCompatiblePlugins_new_way_must_remove_new.png">
-					</section>
-
-					<section>
-						<h2>predicate as property</h2>
-
-						<p>
-							when apply code depends only on a instance properties
-							<img src="assets/img/predicate_property.png">
-						</p>
-					</section>
-
-					<section>
-						<h2>final code</h2>
-
-						<img src="assets/img/findAllOpenSourceCompatiblePlugins_new_way_final_code.png">
+						<h1>it <strong>does</strong> apply to Unit tests too!</h1>
 					</section>
 				</section>
 
 				<section>
-					<section>
-						<h2>Legacy code 2</h2>
+					<h2>Rule n°1</h2>
 
-						<p><img src="assets/img/get_A_OpenSourceDevelopers_old.png"></p>
-						<p class="fragment">create an ordered collection of the developers of the opensource plugins in the specified collection which name starts with an a (case insensitive)</p>
-					</section>
+					<p class="fragment">aka. mother of all goodness:</p>
 
-					<section>
-						<h2>Functional style</h2>
-
-						<img src="assets/img/get_A_OpenSourceDevelopers_new.png">
-					</section>
-
-					<section>
-						<h2>transform And Concat</h2>
-
-						<small>Also known as flatMap (map and flatten)</small>
-
-<pre>
-PluginA   ----   PluginB   ----   PluginC   ----   PluginD
-   |                |                |                |
-   |                |                |                |
- DevA()    ----   DevB()    ----   DevC()    ----   DevC()
-   \                \                /                /
-    \                \              /                /
-     \                \            /                /
-       --------------------\ /---------------------
-                            |
-                          DevAll[]
-</pre>
-
-
-					</section>
-
-
-					<section>
-						<h2>Know your FluentIterable</h2>
-
-						<table>
-							<thead>
-								<tr>
-									<th>process input</th>
-									<th><u>immutable</u> output</th>
-									<th>Optional output</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>
-										filter
-										<br/><br/>
-										transform,
-										transformAndConcat
-										<br/><br/>
-										cycle, append
-									</td>
-									<td>
-										toList, toSet, toArray
-										<br/><br/>
-										toSortedList, toSortedSet
-										<br/><br/>
-										toMap, index, uniqueIndex
-									</td>
-									<td>
-										first, last
-										<br/><br/>
-										firstMatch, anyMatch
-									</td>
-								<tr>
-							</tbody>
-						</table>
-
-					</section>
-
+					<h3 class="fragment">Kill duplication</h3>
 				</section>
 
 				<section>
 					<section>
-						<h2>Under the hood</h2>
+						<h2>Factor code</h2>
 
-						<p>What you should known to avoid bad usage of FluentIterable</p>
+						<p>(of course)</p>
 					</section>
 
 					<section>
-						<h2>Lazy evaluation</h2>
-
-						<p>all filter/map/flatmap operations are lazy evaluated</p>
-
-						<ul>
-							<li>empty iterable at any point means next operations are not evaluated</li>
-							<li>iterate twice means do all operations twice</li>
-							<li>same goes with exist, find, any, size, get, ...</li>
-						</ul>
+						<img src="assets/img/Selection_060.png" width="60%" height="60%">
 					</section>
 
 					<section>
-						<h2>practices</h2>
+						<h2>Factory methods</h2>
 
 						<ul>
-							<li>don't return FluentIterable directly in non private functions</li>
-							<li>be careful when storing a FluentIterable in variable</li>
-							<li>but you can reuse a FluentIterable to create variations</li>
-						</ul>
-					</section>
-
-					<section>
-						<h2>Immutability</h2>
-
-						<p>Ouput of toList, toSet, toMap are immutable objects</p>
-						<ul>
-							<li>it's good for your public functions</li>
-							<li>
-								for mutable collections, use Guava's methods
+							<li>name helps understand what is created</li>
+							<li>leave only discrimant arguments
 								<ul>
-									<li>
-										do<br>
-										<img src="assets/img/mutable_list_do.png" width="150%" height="150%">
-									</li>
-									<li>
-										do not<br/>
-										<img src="assets/img/mutable_list_dont.png" width="150%" height="150%">
-									</li>
+									<li>derive other parameters from it</li>
 								</ul>
 							</li>
 						</ul>
 					</section>
 
 					<section>
-						<h2>lots of objects</h2>
+						<img src="assets/img/Selection_061.png" width="100%" height="100%">
+					</section>
 
-						<p>Guava create lots of (short-lived) objects</p>
-						<p>So, try and don't add to the stack with your objects</p>
+					<section>
+						<img src="assets/img/Selection_063.png" width="100%" height="100%">
+
+						<ul>
+							<li>method naming tells exactly what is done</li>
+							<li>arguments tells exactly what's important to this test<br>(key and parent)</li>
+						</ul>
+					</section>
+
+					<section>
+						<img src="assets/img/Selection_064.png">
+
+						<p>Factory methods are small but changes everything regarding readability</p>
+					</section>
+
+					<section>
+						<h2>Assertion methods</h2>
+					</section>
+
+					<section>
+						<img src="assets/img/Selection_066.png" width="100%" height="100%">
+					</section>
+
+					<section>
+						<img src="assets/img/Selection_067.png" width="100%" height="100%">
+
+						<ul>
+							<li>makes code shorter</li>
+							<li>easier to maintain and improve</li>
+						</ul>
+					</section>
+
+					<section>
+						<img src="assets/img/Selection_067-1.png" width="100%" height="100%">
+
+						<ul>
+							<li>but still some technical noise</li>
+						</ul>
+					</section>
+
+					<section>
+						<img src="assets/img/Selection_070.png" width="100%" height="100%">
+
+						<ul>
+							<li>assertion methods can return stuff, use it!</li>
+							<li>improving assertions is cheap</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Write tools for your UTs</h2>
+					</section>
+
+					<section>
+						<h2>Some context in CE</h2>
+
+						<ul>
+							<li>many Repositories and holders</li>
+							<li>used to share data accross steps, injected in many places</li>
+							<li>based on class Component</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>DuplicationRepository</h2>
+
+						<p><img src="assets/img/Selection_076.png"></p>
+					</section>
+
+					<section>
+						<h2>The rule</h2>
+
+						<p><img src="assets/img/Selection_077.png" width="80%" height="80%"></p>
+					</section>
+
+					<section>
+						<h2>The rule</h2>
+
+						<p><img src="assets/img/Selection_077-2.png" width="80%" height="80%"></p>
+					</section>
+
+					<section>
+						<h2>Using the rule</h2>
+
+						<img src="assets/img/Selection_078.png" width="70%" height="70%">
+
+						<img src="assets/img/Selection_079.png" width="100%" height="100%">
+
+						<ul>
+							<li>no Component object in test code</li>
+							<li>only *_REF constants</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Rules compared to production code</h2>
+
+						<ul>
+							<li>provide test specific methods</li>
+							<li>support DataProviders (thanks to reset methods)</li>
+						</ul>
 					</section>
 				</section>
 
 				<section>
-					<section>
-						<h2>Organising functions/predicates</h2>
+					<h2>Others rules</h2>
 
-						<ul>
-							<li>
-								use factory-style classes
-								<ul>
-									<li>
-										static methods are static import friendly<br/>
-										=> short and good readibility
-									</li>
-									<li>don't expose inner singleton enums or classes</li>
-								</ul>
-							</li>
-						</ul>
-					</section>
+					<h4>(in part 2)</h4>
 
-					<section>
-						<h2>PluginPredicates</h2>
-
-						<img src="assets/img/PluginPredicates.png">
-					</section>
-
-					<section>
-						<h2>Guidelines</h2>
-
-						<ul>
-							<li>
-								group per domain class
-							</li>
-							<li>
-								Name is plural
-								<ul>
-									<li>eg. "PluginPredicates", "PluginFunctions"</li>
-								</ul>
-							</li>
-							<li>
-								group factory classes per domain into a package
-								<ul>
-									<li>eg. "updatecenter.function", "updatecenter.predicate"</li>
-								</ul>
-							</li>
-						</ul>
-					</section>
-
+					<ul>
+						<li>use constants</li>
+						<li>leverage power of AssertJ custom assertions</li>
+						<li>naming of test methods</li>
+					</ul>
 				</section>
-
+<!--
 				<section>
+
 					<section>
-						<h2>Optional</h2>
-
-						<p>&nbsp;</p>
-
-						<h3 class="fragment">Get rid of null...</h3>
-						<h3 class="fragment">... as a returned value</h3>
-
-						<p>&nbsp;</p>
-
-						<small class="fragment">(added in Guava 10 so we should already use it!)</small>
+						<h2>Use constants</h2>
 					</section>
 
 					<section>
-						<h2>Optional as a return type</h2>
+						<h2>In test</h2>
+
+						<p>Remember that "no magic number" rule?</p>
 
 						<ul>
-							<li>
-								improves meaning of method signature<br/>
-								<img src="assets/img/findNewestUpdate_nullable.png" width="150%" height="150%"><br/>
-								<img src="assets/img/findNewestUpdate_Optional.png" width="150%" height="150%"><br/>
+							<li>capital letters stands out</li>
+							<li>help spot the same value accross test or tests</li>
+							<li>adds meaning to values
+								<ul><li>ROOT_VIEW_KEY is more meaningfull than 9965</li></ul>
 							</li>
-							<li>less error prone</li>
-							<li>no more @CheckForNull or @Nullable or javadoc or whatever</li>
-						</ul>
-
-					</section>
-
-					<section>
-						<h2>Optional as a parameter</h2>
-
-						<p>&nbsp;</p>
-						<h3 class="fragment">don't do it in public methods</h3>
-
-						<p>&nbsp;</p>
-						<blockquote class="fragment">Rubustness principle: Be conservative in what you send, be liberal in what you accept</blockquote>
-
-					</section>
-
-
-					<section>
-						<h2>Optional as a parameter</h2>
-
-						<ul class="fragment">
-							<li>keep using @Nullables
-								<ul>
-									<li>avoids polluting method signature</li>
-									<li>and add extra constraint on method caller</li>
-								</ul>
-							</li>
-							<li>use Optional.fromNullable internally</li>
-						</ul>
-
-					</section>
-
-					<section>
-						<h2>Optional as a property</h2>
-
-						<p>&nbsp;</p>
-
-						<h3 class="fragment">don't do it either</h3>
-
-						<ul class="fragment">
-							<li>The extra storage cost is just not worth it</li>
-							<li>keep using (or do use) @CheckForNull/@Nullable</li>
-							<li>Use Optional.fromNullable in getters</li>
 						</ul>
 					</section>
 
 					<section>
-						<h2>No more null checks</h2>
-
-						<p>forget testing null, use Optional.isPresent</p>
-						<img src="assets/img/use_is_present_simple.png" width="150%" height="150%">
-						<p>never use Optional.get without Option.isPresent first</p>
+						<h2>Help spot the sa</h2>
+						<img src="assets/img/Selection_033.png" width="150%" height="150%">
 					</section>
-
-					<section>
-						<h2>The golden or method</h2>
-
-						<p>
-							elegant default value<br/>
-							<img src="assets/img/use_or_for_default_value.png" width="150%" height="150%">
-						</p>
-						<p>
-							use Optional.orNull if null is your default value<br/>
-							<img src="assets/img/use_or_null.png" width="150%" height="150%">
-						</p>
-					</section>
-
-					<section>
-						<h2>Or even better</h2>
-
-						<p>
-							fluent method calls<br/>
-							<img src="assets/img/use_combined_ors.png" width="150%" height="150%">
-						</p>
-						<p>
-							or throwing exceptions<br/>
-							<img src="assets/img/use_or_to_throw_exception.png" width="150%" height="150%">
-						</p>
-					</section>
-
 				</section>
-
-
+-->
 
 
 			</div>
