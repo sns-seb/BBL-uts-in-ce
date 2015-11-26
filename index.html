@@ -170,7 +170,17 @@
 					</section>
 
 					<section>
-						<h2>Write tools for your UTs</h2>
+						<h2>To sum up</h2>
+
+						<ul>
+							<li>removing duplication helps make test understandable</li>
+							<li>get rid of technical setup and wiring noise</li>
+							<li>almost one line per setup action and assertion</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Leverage JUnit rules</h2>
 					</section>
 
 					<section>
@@ -180,6 +190,15 @@
 							<li>many Repositories and holders</li>
 							<li>used to share data accross steps, injected in many places</li>
 							<li>based on class Component</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>The problem</h2>
+
+						<ul>
+							<li>lots of noise dealing with Component objects</li>
+							<li>lost of code duplicated accross test classes</li>
 						</ul>
 					</section>
 
@@ -220,6 +239,7 @@
 						<ul>
 							<li>provide test specific methods</li>
 							<li>support DataProviders (thanks to reset methods)</li>
+							<li>requires use of Interface in production (which is good anyway!)</li>
 						</ul>
 					</section>
 				</section>
